@@ -1,0 +1,32 @@
+<div class="container">
+<h2>Expense Categories</h2>
+<span>Add/Remove Expense Categories Below</span><br>
+<small>Add category</small>
+
+<div class="m-3">
+
+<button 
+    *ngFor="let cat of eCategories; let i = index" class="btn btn-secondary categ m-1"
+    >{{cat.name}}      
+    <span 
+        *ngIf="cat.newState"
+        (click)="deleteCat(i)"> &times;</span></button>
+
+</div>
+<label for="add-category">Add Category</label>
+  <div>
+    <input 
+      type="text" 
+      [(ngModel)]="categ">
+
+      <button 
+        type="button"
+        class="btn btn-success"
+        (click)="addCategory()">ADD</button>
+
+        
+     
+
+  </div>
+<span *ngIf="duplicate" class="text-danger">Your Category is a duplicate</span>
+</div>

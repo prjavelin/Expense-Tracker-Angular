@@ -1,0 +1,102 @@
+<h2>Enter Expense</h2>
+<p class="ml-2">Enter required fields to save a new expense</p>
+
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()" #f="ngForm">
+<div class="form-group">
+    
+        <div class="row">
+            
+          <div class="col-6">
+            <input 
+                type="text"
+                class="form-control underline-input"
+                name="expenseName"
+                ngModel
+                placeholder="Expense name *"
+                formControlName="expenseName"
+                required>
+          </div>
+          <div class="col-6">
+            <input 
+                type="number"
+                name="amount"
+                class="form-control underline-input"
+                ngModel
+                placeholder="Amount *"
+                requiered
+                formControlName="amount"
+                >
+          </div>
+          
+
+          <div class="row pt-5">
+            
+            <div class="col-6">
+              <input 
+                  type="date"
+                  class="form-control underline-input"
+                  name="expenseDate"
+                  ngModel
+                  placeholder="Expense date *"
+                  formControlName="expenseDate"
+                  required>
+            </div>
+            <div 
+                class="col-6"
+                >
+            <select 
+                name="expenseCategory" 
+                id="selectField"
+                class="form-group col-12"
+                formControlName="expenseCategory">
+                <option 
+                    *ngFor="let cat of categories"
+                    [value]="cat.name"
+                    >{{cat.name}}</option>
+
+            </select>
+             </div>
+        </div>
+        <div class="row pt-5">
+            
+            <div class="col-6">
+                <!-- <label for="selectField">Select an option:</label> -->
+                <select class="col-12 form-group" id="selectField" formControlName="paymentType"
+                >
+                  <option value="credit">Credit</option>
+                  <option value="debit">Debit</option>
+                  <option value="cash">Cash</option>
+                </select>
+            </div>
+
+            </div>
+
+            <div class="row pt-5">
+            
+                <div class="col">
+                  <input 
+                      type="text"
+                      class="form-control underline-input"
+                      name="expenseDate"
+                      ngModel
+                      placeholder="Comments"
+                      formControlName="comments"
+                      >
+                </div>
+    
+                </div>
+
+
+        </div>
+
+     </div>
+     <div class="pt-5 align-items-right">
+
+     <button class="btn btn-danger" type="reset">Reset</button>
+
+     <button class="btn btn-success"
+     type="submit">Submit</button>
+
+</div>
+
+</form>
